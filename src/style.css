@@ -1,0 +1,134 @@
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: url('./woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+* {
+    font-family: 'Pretendard Variable';
+    transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+}
+
+webview {
+    width: calc(100vw - 0px);
+    height: 100vh;
+    display: inline-flex;
+}
+
+body, html {
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    overflow:hidden;
+}
+
+.header {
+    -webkit-app-region: drag;
+    width: calc(100vw);
+    position: fixed;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 0;
+    right: 0;
+    /* box-shadow: 8px 4px 10px 0px rgba(0, 0, 0, 0.10); */
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.menubtn {
+    margin-left: 10px;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(71%) saturate(4349%) hue-rotate(200deg) brightness(91%) contrast(106%);
+    cursor:pointer;
+    -webkit-app-region: no-drag;
+}
+
+.loginpage {
+    background: url(./dkhs.webp) no-repeat;
+    height:calc(100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.loginform {
+    width: 50%;
+    background: #fffa;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    padding: 20px;
+    position:absolute;
+    top: calc((100vh - 50%) / 2);
+    left: calc((100vw - 50%) / 2);
+    border-radius: 20px;
+}
+
+.loginform img {
+    user-select: none;
+}
+
+.form, .form2 {
+    margin-top:20px;
+}
+.form input {
+    width: calc(40%);
+    height: 25px;
+    border:0;
+    background:0;
+    border-bottom: 2.5px solid #414041;
+    font-size: 15px;
+    border-radius: 2px;
+    color: #414041;
+}
+.form input:focus {
+    outline:0;
+    border-bottom: 2.5px solid #0091ea;
+}
+.form input:hover {
+    scale: 1.1;
+}
+
+.form2 {
+    font-size: 15px;
+}
+.form2 input {
+    height: 20px;
+    width: 20px;
+    vertical-align: -5px;
+    margin-right:5px;
+    accent-color: #0091ea;
+    cursor:help;
+    background:0;
+}
+.form2 input:focus {
+    outline:2px solid #0091ea;
+}
+.form2 label {
+    cursor:help;
+}
+
+
+.loginbtn {
+    width:30%;
+    margin-top:20px;
+    font-size:20px;
+    color: #0091ea;
+    background:0;
+    border:2px solid #0091ea;
+    border-radius: 100px;
+    padding: 10px;
+}
+.loginbtn:hover {
+    background: #0091ea;
+    scale: 1.1;
+    color:#fff;
+}
+.loginbtn:focus {
+    outline:2px solid #0091ea;
+}
+
+.loginbtn:active {
+    background: #0091ea;
+    scale: 1.0;
+    color:#fff;
+}
