@@ -71,6 +71,9 @@ button.preview_btn_img_pc {display: none;}
 
         webview.addEventListener("dom-ready", (e) => {
             header.style.display = 'block';
+            webview.executeJavaScript(`document.querySelectorAll("a[target='_blank']").forEach((e) => {
+                e.setAttribute("target", "")
+            })`)
         });
 
         webview.addEventListener("will-navigate", (e) => {

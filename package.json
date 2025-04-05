@@ -1,12 +1,15 @@
 {
-    "name": "riroschool",
-    "productName": "리로스쿨",
+    "name": "dkhs_riroschool",
+    "productName": "DKHS 리로스쿨",
+    "description": "단대소고짱",
     "version": "1.0.0",
     "main": "main.js",
     "dependencies": {
         "crypto": "^1.0.1",
-		"electron": "^35.1.3",
         "electron-store": "^10.0.1"
+    },
+    "devDependencies": {
+		"electron": "^35.1.3"
     },
     "author": "jiheum",
     "scripts": {
