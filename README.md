@@ -10,12 +10,14 @@ node.js 기반으로 electron 써서 만듬
 - [x] 로그아웃하면 저장된 정보 삭제
 - [ ] 디자인 내뭣대로 바꾸기❤️
 - [ ] ㅈ박은 최적화 고치기!
-- [ ] 보안문제있으면고치기 <- ㅈㄴ많을듯 쓰지마
+- [ ] 보안문제있으면고치기 <- ㅈㄴ많을듯 쓰지마 (해킹방어과 연락좀22222222)
 - [ ] 임시로 막아놓은 기능들 해결하기
 - [ ] 주석....달기.....?
 
 # 다운로드
 [최신 버전 다운로드](https://github.com/jxheum/riroschool_electron/releases/latest)
+
+[Github](https://github.com/jxheum/riroschool_electron)
 
 # 스크린샷
 ![image](https://github.com/user-attachments/assets/b2af1d65-dda5-4df8-8ae3-4c929219d60e)
