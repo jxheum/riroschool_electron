@@ -82,7 +82,7 @@ body, html {
 }
 .form input:focus {
     outline:0;
-    border-bottom: 2.5px solid #0091ea;
+    border-bottom: 2.5px solid #02499b;
 }
 .form input:hover {
     scale: 1.1;
@@ -96,12 +96,12 @@ body, html {
     width: 20px;
     vertical-align: -5px;
     margin-right:5px;
-    accent-color: #0091ea;
+    accent-color: #02499b;
     cursor:help;
     background:0;
 }
 .form2 input:focus {
-    outline:2px solid #0091ea;
+    outline:2px solid #02499b;
 }
 .form2 label {
     cursor:help;
@@ -112,23 +112,23 @@ body, html {
     width:30%;
     margin-top:20px;
     font-size:20px;
-    color: #0091ea;
+    color: #02499b;
     background:0;
-    border:2px solid #0091ea;
+    border:2px solid #02499b;
     border-radius: 100px;
     padding: 10px;
 }
 .loginbtn:hover {
-    background: #0091ea;
+    background: #02499b;
     scale: 1.1;
     color:#fff;
 }
 .loginbtn:focus {
-    outline:2px solid #0091ea;
+    outline:2px solid #02499b;
 }
 
 .loginbtn:active {
-    background: #0091ea;
+    background: #02499b;
     scale: 1.0;
     color:#fff;
 }
