@@ -14,5 +14,7 @@ node.js 기반으로 electron 써서 만듬
 - [ ] 임시로 막아놓은 기능들 해결하기
 
 # 스크린샷
-![image](https://github.com/user-attachments/assets/2182112a-bdc0-4ba1-8be5-18103ef06d58)
+## 로그인 페이지
+![image](https://github.com/user-attachments/assets/b2af1d65-dda5-4df8-8ae3-4c929219d60e)
+## 메인 페이지
 ![image](https://github.com/user-attachments/assets/a71bbb17-162f-4e00-93be-5057efd5584c)
