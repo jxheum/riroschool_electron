@@ -81,13 +81,14 @@ app.whenReady().then(() => {
     app.on('browser-window-created', (event, window) => {
         window.webContents.addListener("dom-ready", (e) => {
             if (window.webContents.getURL().includes("pdfjs/web/viewer.html")) {
-                // 프레임 X, 웹뷰 새 창 뜨게 하기
+                window.setMenuBarVisibility(false);
+                window.setIcon('./src/favicon.png');
             }
             else {
                 shell.openExternal(window.webContents.getURL());
                 console.log(window.webContents.getURL());
+                window.close();
             }
-            window.close();
         });
     })
 });
