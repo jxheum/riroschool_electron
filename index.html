@@ -35,8 +35,6 @@
 .treeWrap .user .user_inner {border-radius: 10px;margin-bottom:0;}
 .user_btn {display: none !important;}
 .main-btn.txt-icon {display: none !important;}
-.inner_elem[onclick="menuAction('/my_page.php', 'tab');"] {display: none !important;}
-.inner_type.inner_type_btn {grid-template-columns: repeat(2, 1fr) !important;}
 .re_footer_text {display: none !important;}
 ul.treeMenu.gnb_list {height: calc(100% - 100px);}
 img[alt="편집기로 입력하기"] {display: none !important;}
@@ -45,9 +43,9 @@ img[alt="편집기로 입력하기"] {display: none !important;}
         webview.addEventListener("load-commit", (e) => {
             webview.insertCSS(css);
             if (e.url.startsWith('https://dankook.riroschool.kr/') == false && e.url != 'about:blank' || e.url.includes("itempool")) {
-                webview.goBack()
-                openExternal(e.url);
-                console.log(e.url);
+                // webview.goBack()
+                // openExternal(e.url);
+                // console.log(e.url);
             }
             if (webview.isDevToolsOpened() == false) {
                 // webview.openDevTools();

@@ -84,6 +84,17 @@ app.whenReady().then(() => {
                 window.setMenuBarVisibility(false);
                 window.setIcon('./src/favicon.png');
             }
+            else if (window.webContents.getURL().includes("my_page")) {
+                window.setMenuBarVisibility(false);
+                window.setIcon('./src/favicon.png');
+            }
+            else if (window.webContents.getURL() == "https://dankook.riroschool.kr/home.php") {
+                window.close();
+            }
+            else if (window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php")) {
+                window.setMenuBarVisibility(false);
+                window.setIcon('./src/favicon.png');
+            }
             else {
                 shell.openExternal(window.webContents.getURL());
                 console.log(window.webContents.getURL());
