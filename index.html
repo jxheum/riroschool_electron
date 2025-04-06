@@ -10,7 +10,8 @@
     <div class="header" id="header">
         <!-- <img src="./src/menubtn.svg" height="30px" class="menubtn" onclick="menutoggle()"> -->
     </div>
-    <webview src="https://dankook.riroschool.kr/user.php?action=signin" id="riro" style="display:none !important;">
+    <!-- <a href="about:blank" target="_blank"><button style="height: 100px;">asdf</button></a> -->
+    <webview src="https://dankook.riroschool.kr/user.php?action=signin" id="riro" style="display:none !important;" webpreferences="nativeWindowOpen=true" allowpopups>
     </webview>
 
     <div class="loginpage">
@@ -41,7 +42,6 @@ ul.treeMenu.gnb_list {height: calc(100% - 100px);}
 img[alt="편집기로 입력하기"] {display: none !important;}
 .home-box:nth-child(12) {width: calc(33.1%* 2) !important;margin-right: 0 !important;}
 a[href="http://dankook.sen.hs.kr"] {display: none !important;}
-button.preview_btn_img_pc {display: none;}
         `;
 
         webview.addEventListener("load-commit", (e) => {

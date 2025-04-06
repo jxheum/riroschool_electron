@@ -61,6 +61,12 @@ function createWindow() {
         minHeight: 600
     });
     win.loadFile("index.html");
+
+    // win.webContents.setWindowOpenHandler(({ url }) => {
+    //     shell.openExternal(url);
+    //     console.log('asdf');
+    //     return { action: 'deny' };
+    // });
 }
 
 app.whenReady().then(() => {
@@ -71,4 +77,17 @@ app.whenReady().then(() => {
             createWindow();
         }
     });
+
+    app.on('browser-window-created', (event, window) => {
+        window.webContents.addListener("dom-ready", (e) => {
+            if (window.webContents.getURL().includes("pdfjs/web/viewer.html")) {
+                // 프레임 X, 웹뷰 새 창 뜨게 하기
+            }
+            else {
+                shell.openExternal(window.webContents.getURL());
+                console.log(window.webContents.getURL());
+            }
+            window.close();
+        });
+    })
 });
