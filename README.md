@@ -17,6 +17,7 @@ node.js 기반으로 electron 써서 만듬
 - [ ] 주석....달기.....?
 - [ ] 여러 단축키 적용하기
 - [x] **팝업창열리는거 막기**
+- [ ] 로그인할때 로딩 만들기
 
 # 다운로드
 [최신 버전 다운로드](https://github.com/jxheum/riroschool_electron/releases/latest)
