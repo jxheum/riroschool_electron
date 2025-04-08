@@ -17,9 +17,15 @@ function loadidpw() {
 }
 
 ipcRenderer.on('idpwloaded', (e, argument) => {
+    pgbar.value = 20;
     login(argument[0], argument[1]);
 });
 
 function resetidpw() {
     ipcRenderer.send('resetidpw');
 }
+
+ipcRenderer.on('idpwunk', (e) => {
+    document.querySelector("#logininputs").style.display = 'block';
+    pgbar.style.display = 'none';
+});

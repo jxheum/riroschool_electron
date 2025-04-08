@@ -99,9 +99,7 @@ body, html {
     accent-color: #02499b;
     cursor:help;
     background:0;
-}
-.form2 input:focus {
-    outline:2px solid #02499b;
+    
 }
 .form2 label {
     cursor:help;
@@ -131,4 +129,34 @@ body, html {
     background: #02499b;
     scale: 1.0;
     color:#fff;
+}
+
+.loader {
+    border: 5px solid #00000000;
+    border-radius: 50%;
+    border-top: 5px solid #02499b;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-left: calc(50% - 22.5px);
+    margin-top: 5px;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
