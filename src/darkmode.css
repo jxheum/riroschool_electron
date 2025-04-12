@@ -1,3 +1,4 @@
+/* 해보려 했찌만 포기할게요 */
 html, body {
     background: #101720;
 }
@@ -401,4 +402,24 @@ select.ui-datepicker-month {
 
 select.ui-datepicker-month {
     background: #101720;
+}
+
+.user_inner.clearfix {
+    background: transparent !important;
+}
+
+a.btn_visit_home {
+    background: none !important;
+}
+
+div#go_portal {
+    background: none;
+}
+
+.renewal_signin_container .renewal_signin_wrap .top_section .text p {
+    color: white !important;
+}
+
+.renewal_signin_container .renewal_signin_wrap .contents .signin_form .id_input .id_info p {
+    color: white !important;
 }
