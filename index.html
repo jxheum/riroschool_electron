@@ -32,15 +32,11 @@
         webview = document.querySelector('#riro');
         header = document.querySelector('#header');
         pgbar = document.querySelector('.loader');
+        const fs = require("fs");
         
-        css = `
-.treeWrap {padding-top: 30px;box-shadow: none !important;border-right: 1px solid #d6d6d6;}
-.btn_side_menu_control {margin-top: 30px;}
-.treeWrap .user .user_inner {border-radius: 10px;margin-bottom:0;}
-.user_btn {margin-top: 20px !important;}
-.main-btn.txt-icon {display: none !important;}
-.gnb_list {height: calc(100% - 220px) !important;}
-        `;
+        fs.readFile('./src/riro.css', "utf8", (err, data) => {
+            css = data;
+        });
 
         webview.addEventListener("load-commit", (e) => {
             webview.insertCSS(css);
@@ -72,7 +68,14 @@
             header.style.display = 'block';
             webview.executeJavaScript(`document.querySelectorAll("a[target='_blank']").forEach((e) => {
                 e.setAttribute("target", "")
-            })`)
+            })
+            document.onkeydown = (e) => {
+    if (e.key == "r" && e.ctrlKey) {
+        e.preventDefault();
+        location.reload();
+    }
+}    
+            `)
         });
 
         webview.addEventListener("will-navigate", (e) => {
