@@ -2,7 +2,7 @@
     "name": "dkhs_riroschool",
     "productName": "DKHS 리로스쿨",
     "description": "단대소고짱",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "main": "main.js",
     "dependencies": {
         "crypto": "^1.0.1",

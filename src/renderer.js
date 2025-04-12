@@ -29,3 +29,9 @@ ipcRenderer.on('idpwunk', (e) => {
     document.querySelector("#logininputs").style.display = 'block';
     pgbar.style.display = 'none';
 });
+
+ipcRenderer.on('idpwerr', (e) => {
+    document.querySelector("#logininputs").style.display = 'block';
+    document.querySelector(".loginerror").style.display = 'block';
+    pgbar.style.display = 'none';
+});

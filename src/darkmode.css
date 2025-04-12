@@ -1,0 +1,404 @@
+html, body {
+    background: #101720;
+}
+
+* {
+    color:white !important;
+}
+
+.treeWrap {
+    background: #101720;
+    border-right: 1px solid #54595f;
+}
+
+ul.treeMenu.gnb_list {
+    border-top: 1px solid #d6d6d650;
+}
+
+
+
+
+
+p.last.riro_menu {
+    border: 1px solid #DEE2E650 !important;
+}
+
+a.noto.btn_cloud_link {
+    border-left: 1px solid #DEE2E650 !important;
+}
+
+.ex_icon.student p > a {
+    border-left: 1px solid #DEE2E650;
+}
+
+a.noto.btn_potal_link {
+    border-left: none !important;
+}
+
+.only_pc.user_inner.clearfix {
+    background: transparent !important;
+    border: 1px solid #eaeaea50 !important;
+}
+
+.inner_top {
+    border-bottom: 0 !important;
+}
+
+.gnb_list > .li > span > img {
+    filter: brightness(0) saturate(100%) invert(33%) sepia(8%) saturate(0%) hue-rotate(244deg) brightness(101%) contrast(91%) !important;
+}
+
+.search_zone {
+    background: transparent !important;
+    border: 1px solid #54595f;
+}
+
+.link_wrap {
+    background: transparent !important;
+}
+
+a.btn_sch_pc {
+    background: transparent !important;
+}
+
+ul.home-box.home_list.re_menucon_wrap {
+    background: transparent !important;
+    border: 1px solid #54595f !important;
+}
+
+span.riro-label {
+    background: transparent !important;
+}
+
+ul.home-box.re_menucon_wrap {
+    background: transparent !important;
+    border: 1px solid #54595f !important;
+}
+
+.re_footer_container {
+    background: transparent;
+}
+
+.btn_side_menu_control img {}
+
+.btn_side_menu_control {
+    background: rgba(204, 209, 215, 0.5) !important;
+}
+
+.rd_tooltip {background: #101720 !important;}
+
+table[bgcolor="white"] {
+    background: #101720 !important;
+}
+
+td[style] {background: #101720 !important;}
+
+a#portfolio_search_btn {
+    background: transparent !important;
+    border: 1px solid #54595f;
+}
+
+input#portfolio_task_name {
+    border-left: 1px solid #54595f !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cccccc50 !important;
+}
+
+.gnb_list::-webkit-scrollbar-thumb {
+    background: #ddd5 !important;
+}
+
+.gnb_list::-webkit-scrollbar-track {
+    background: none;
+}
+
+li.li.checked.\31 551 {
+    background: transparent !important;
+}
+
+.active {
+    background: none !important;
+    border-top: 1px solid #dcdcdc50 !important;
+    border-bottom: 1px solid #dcdcdc50 !important;
+}
+
+ul.depth.depth2_list {
+    background: none;
+}
+
+span {}
+
+.active {
+    background: none !important;
+}
+
+.checked {
+    background: none !important;
+}
+
+select.rd_select.medium.sel-con {
+    background: #101720 !important;
+    border: 1px solid #d6d6d650 !important;
+}
+
+option {
+}
+
+table {
+}
+
+th {
+    background: transparent !important;
+}
+
+.search_part.fix.clearfix {
+    background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+input.re_search_input {
+    background: transparent;
+}
+
+tr:hover {
+    background: #101720 !important;
+}
+
+.all-table tr:hover td {
+    background: #101720 !important;
+}
+
+tr {
+}
+
+
+.meal_schedule_bottom {
+    background: none !important;
+}
+
+.meal_schedule_header .meal_schedule_list_btn button {
+    background: none;
+}
+
+.meal_body_month .meal_body_tab button {
+    background: none;
+}
+
+.day_head {
+    background: none !important;
+}
+
+.day {
+    background: none !important;
+}
+
+.meal_schedule_popup {
+    background: #101720 !important;
+}
+
+.title {
+    background: none !important;
+}
+
+.type.tab {
+    background: none !important;
+}
+
+.meal_schedule_popup .type .popup_tab button {
+    background: none;
+}
+
+button.meal_schedule_popup_today_on {
+    background: none !important;
+}
+
+.meal_schedule_popup .title .close_popup img {background: #c8c8c850;}
+
+button.btn_today_go.noprint {
+    background: none !important;
+}
+
+.meal_type {
+    background: none !important;
+}
+
+.type {
+    background: none !important;
+}
+
+tr {
+    background: none;
+}
+
+select#t_year {
+    background: #101720;
+}
+
+select {
+    background: #101720 !important;
+}
+
+td {
+    background: none !important;
+}
+
+.sch_elem.neis {
+    background: none !important;
+}
+
+.detail_sch_wrap {
+    background: none;
+}
+
+.detail_sch_inner {
+    background: none !important;
+}
+
+.sch_elem.neis_holiday {
+    background: none !important;
+}
+
+.semester_wrap {
+    background: none !important;
+}
+
+table.calendar_table {
+    background: none !important;
+}
+
+ul.sch_list {
+    background: none !important;
+}
+
+.sch_schedule_wrap .semester_wrap .schedule_wrap .sch_list::-webkit-scrollbar-thumb {
+    background: transparent !important;
+}
+
+button.go_today_btn {
+    background: none !important;
+}
+
+.sel_box_inner {
+    background: transparent !important;
+    backdrop-filter: blur(20px);
+}
+
+a {}
+
+.sch_schedule_wrap .top_part .type_tab_list li:hover {
+    background: none !important;
+}
+
+.sch_schedule_wrap .top_part .type_tab_list li:last-child a:hover {
+    background: none !important;
+}
+
+.sch_schedule_wrap .top_part .type_tab_list li a:hover {
+    background: transparent !important;
+}
+
+.view_header {
+    background: #101720;
+}
+
+input[type="text"] {
+    background: none !important;
+}
+
+.re_btn_a {
+    background: none;
+}
+
+tr.tr_bg {
+    background: none !important;
+}
+
+article.submit_info {
+    background: none !important;
+}
+
+.info_wrap {
+    background: transparent !important;
+}
+
+.select_range {
+    background: none !important;
+}
+
+.calc_range.calc_range_wrap {
+    background:  none !important;
+}
+
+textarea.absence_reason.validation_check {
+    background: none !important;
+}
+
+span.badge {
+    background:  none !important;
+}
+
+button.sign_btn {
+    background: none !important;
+}
+
+.popup_body {
+    background: #101720 !important;
+}
+
+.content {
+    background: #101720 !important;
+}
+
+button.cancel {
+    background: none !important;
+}
+
+button.back_btn {
+    background: none !important;
+}
+
+textarea.plan.validation_check {
+    background: none !important;
+}
+
+a.rd.btn_refresh {
+    background: none !important;
+}
+
+a.rd_btn.medium.lineBlue.visit_info_btn {
+    background: none !important;
+}
+
+.pop_inner {
+    background: #101720 !important;
+}
+
+button.rd_btn.large.gray.\> {
+    background: none;
+}
+
+button.rd_btn.large.gray {
+    background: none;
+}
+
+textarea#reason {
+    background: none;
+}
+
+div#ui-datepicker-div {
+    background: #101720 !important;
+}
+
+select.ui-datepicker-year {
+    background: #101720 !important;
+}
+
+select.ui-datepicker-month {
+    background: #101720 !important;
+}
+
+select.ui-datepicker-month {
+    background: #101720;
+}

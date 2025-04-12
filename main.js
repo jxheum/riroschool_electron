@@ -28,11 +28,19 @@ function loadencdata(key) {
 }
 
 ipc.on('loadidpw', (e, argument) => {
-    if (loadencdata("id") != null && loadencdata("pw") != null) {
-        e.sender.send('idpwloaded', [loadencdata("id"), loadencdata("pw")]);
+    try {
+        if (loadencdata("id") != null && loadencdata("pw") != null) {
+            e.sender.send('idpwloaded', [loadencdata("id"), loadencdata("pw")]);
+        }
+        else {
+            e.sender.send('idpwunk');
+        }
     }
-    else {
-        e.sender.send('idpwunk');
+    catch {
+        store.delete('id');
+        store.delete('pw');
+        console.log("Reset Complete")
+        e.sender.send('idpwerr');
     }
 });
 
@@ -83,7 +91,7 @@ app.whenReady().then(() => {
 
     app.on('browser-window-created', (event, window) => {
         window.webContents.addListener("dom-ready", (e) => {
-            if (window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page")) {
+            if (window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/WebEditor/index.php?") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/policy.php")) {
                 window.setMenuBarVisibility(false);
             }
             else if (window.webContents.getURL() == "https://dankook.riroschool.kr/home.php") {

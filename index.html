@@ -17,6 +17,7 @@
     <div class="loginpage">
         <div class="loginform">
                 <img src="./src/logo.png" height="60px">
+                <div class="loginerror" style="display:none;">다시 로그인해주세요</div>
                 <div class="loader"></div>
                 <div id="logininputs" style="display:none;">
                     <div class="form"><input placeholder="학교 아이디 또는 이메일" id="idinput"></div>
@@ -34,14 +35,11 @@
         
         css = `
 .treeWrap {padding-top: 30px;box-shadow: none !important;border-right: 1px solid #d6d6d6;}
-.btn_side_menu_control {display:none !important;}
-.only_pc.icon_box.ex_icon.student {display: none !important;}
+.btn_side_menu_control {margin-top: 30px;}
 .treeWrap .user .user_inner {border-radius: 10px;margin-bottom:0;}
-.user_btn {display: none !important;}
+.user_btn {margin-top: 20px !important;}
 .main-btn.txt-icon {display: none !important;}
-.re_footer_text {display: none !important;}
-ul.treeMenu.gnb_list {height: calc(100% - 100px);}
-img[alt="편집기로 입력하기"] {display: none !important;}
+.gnb_list {height: calc(100% - 220px) !important;}
         `;
 
         webview.addEventListener("load-commit", (e) => {
@@ -61,6 +59,7 @@ img[alt="편집기로 입력하기"] {display: none !important;}
                     save('id', idinput.value);
                     save('pw', pwinput.value);
                 }
+                webview.setAttribute('src', 'https://dankook.riroschool.kr/home.php')
             }
             else if (e.url == "https://dankook.riroschool.kr/user.php?action=signin") {
                 loginpage.style.display = 'block';
