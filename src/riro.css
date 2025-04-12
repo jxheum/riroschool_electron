@@ -13,6 +13,61 @@
     margin-top: 30px !important;
 }
 
+::-webkit-scrollbar-thumb {
+    border: 1.5px solid white !important;
+    border-radius: 100px !important;
+    background: #777777 !important;
+}
+
+.treeWrap .user .user_inner .inner_top .left .name_type_wrap .name_type .type {
+    color: #00499d !important;
+}
+
+.gnb_list > .li.checked > span {color: #00499d !important;}
+
+span.riro-label {
+    background: #00499d;
+    border: 1px solid #00499d;
+}
+
+.portfolio_wrap .btm_wrap a.btn_save {
+    background: #00499d !important;
+}
+
+.re_menucon_li_rinktitle_b {
+    color: #00499d !important;
+}
+
+.re_menucon_li_rink {
+    color: #00499d !important;
+}
+
+.wh_search_box .btn_sch_pc span {
+    color: #00499d !important;
+}
+
+.wh_search_box .link_wrap {
+    border: 1px solid #00499d !important;
+}
+
+.re_search_btn {
+    background: #00499d !important;
+}
+
+.pagei {
+    background: #00499d !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    background: none !important;
+}
+
+.gnb_list::-webkit-scrollbar-track {
+    background: none !important;
+}
+
 p.last.riro_menu {
     border-radius: 30px !important;
     margin-top: 10px !important;

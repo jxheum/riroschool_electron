@@ -1,4 +1,3 @@
-// filepath: c:\Users\jimmy\OneDrive\문서\Riroschool\main.js
 import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
 import Store from "electron-store";
@@ -56,7 +55,7 @@ function createWindow() {
         titleBarStyle: "hidden",
         titleBarOverlay: {
             color: '#ffffff00',
-            symbolColor: '#02499b',
+            symbolColor: '#00499d',
             height: 30,
         },
         autoHideMenuBar: true,

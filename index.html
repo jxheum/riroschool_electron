@@ -39,7 +39,11 @@
         });
 
         webview.addEventListener("load-commit", (e) => {
-            webview.insertCSS(css);
+            try {
+                webview.insertCSS(css);
+            } catch (error) {
+                webview.reload();
+            }
             if (e.url.startsWith('https://dankook.riroschool.kr/') == false && e.url != 'about:blank') {
                 webview.goBack()
                 openExternal(e.url);
