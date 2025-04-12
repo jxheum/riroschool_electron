@@ -18,7 +18,7 @@ node.js 기반으로 electron 써서 만듬
 - [ ] 여러 단축키 적용하기
 - [x] **팝업창열리는거 막기**
 - [x] 로그인할때 로딩 만들기
-- [ ] 다크모드 지원하기
+- [ ] 다크모드 지원하기 -> 이건 나중에 기회가 되면 해봄 ㅠㅠ
 
 # 다운로드
 [최신 버전 다운로드](https://github.com/jxheum/riroschool_electron/releases/latest)
