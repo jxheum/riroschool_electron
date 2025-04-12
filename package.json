@@ -8,8 +8,8 @@
     "icon": "./src/favicon.png",
     "dependencies": {
         "crypto": "^1.0.1",
-        "electron-builder": "^26.0.12",
-        "electron-store": "^10.0.1"
+        "electron-store": "^10.0.1",
+        "electron-builder": "^26.0.12"
     },
     "devDependencies": {
         "electron": "^35.1.3"
