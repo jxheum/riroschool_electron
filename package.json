@@ -4,6 +4,8 @@
     "description": "단대소고짱",
     "version": "1.1.2",
     "main": "main.js",
+    "license": "Apache-2.0",
+    "icon": "./src/favicon.png",
     "dependencies": {
         "crypto": "^1.0.1",
         "electron-store": "^10.0.1"
@@ -21,7 +23,7 @@
         "build:win": "npm run build:win32 && npm run build:win64",
         "build:win32": "electron-builder --win --ia32",
         "build:win64": "electron-builder --win --x64",
-        "build": "electron-builder"
+        "build": "electron-builder --win --x64"
     },
     "build": {
         "win": {
