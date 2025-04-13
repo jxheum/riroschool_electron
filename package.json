@@ -24,7 +24,7 @@
         "build:win": "npm run build:win32 && npm run build:win64",
         "build:win32": "electron-builder --win --ia32",
         "build:win64": "electron-builder --win --x64",
-        "build": "electron-builder --win --x64"
+        "build": "electron-builder"
     },
     "build": {
         "win": {
