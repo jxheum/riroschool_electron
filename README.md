@@ -6,6 +6,8 @@ node.js 기반으로 electron 써서 만듬
 
 ~~유감이지만 맥이 없어서 macOS는 직접 빌드하시길~~
 
+Github Actions 쓸 줄 아는 분 구함 
+
 # 기능
 
 - [x] ID&PW 암호화? 저장 (해킹방어과 연락좀)
