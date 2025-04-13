@@ -12,7 +12,8 @@
     },
     "devDependencies": {
         "electron": "^35.1.3",
-        "electron-builder": "^26.0.12"
+        "electron-builder": "^26.0.12",
+        "dmg-license": "^1.0.11"
     },
     "author": "jiheum",
     "scripts": {
