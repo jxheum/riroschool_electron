@@ -423,3 +423,31 @@ div#go_portal {
 .renewal_signin_container .renewal_signin_wrap .contents .signin_form .id_input .id_info p {
     color: white !important;
 }
+
+.btn_fixed.on {
+    background: transparent;
+}
+
+a.pagei {
+    background: transparent !important;
+}
+
+.btn_fixed.on {
+    background: none !important;
+}
+
+.search_part_inner {
+    background: none !important;
+}
+
+.search_part.fix.clearfix {
+    background: none !important;
+}
+
+.ck.ck-toolbar__items {
+    background: none !important;
+}
+
+.ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners {
+    background: none !important;
+}
