@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [macos-latest, windows-latest]
 
     steps:
       - name: Checkout
@@ -19,11 +19,8 @@ jobs:
         with:
           node-version: latest
   
-      - name: Install Snapcraft
-        uses: samuelmeuli/action-snapcraft@v1
-        if: startsWith(matrix.os, 'ubuntu')
-        with:
-          snapcraft_token: ${{ secrets.snapcraft_token }}
+      - name: Install dmg-license 
+        run: npm i dmg-license
         
 
       - name: Build/release Electron app
