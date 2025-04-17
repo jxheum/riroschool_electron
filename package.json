@@ -1,8 +1,8 @@
 {
-    "name": "dkhs_riroschool",
-    "productName": "DKHS RIROSCHOOL",
+    "name": "dksh_riroschool",
+    "productName": "DKSH RIROSCHOOL",
     "description": "단대소고짱",
-    "version": "1.2.6",
+    "version": "1.3.0",
     "main": "main.js",
     "license": "Apache-2.0",
     "icon": "./src/favicon.png",
