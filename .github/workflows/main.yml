@@ -21,6 +21,7 @@ jobs:
   
       - name: Install dmg-license 
         run: npm i dmg-license
+        if: startsWith(matrix.os, 'macos')
         
 
       - name: Build/release Electron app
