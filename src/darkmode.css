@@ -1,6 +1,5 @@
-/* 해보려 했찌만 포기할게요 */
 html, body {
-    background: #101720;
+    background: #101720 !important;
 }
 
 * {
@@ -8,12 +7,12 @@ html, body {
 }
 
 .treeWrap {
-    background: #101720;
-    border-right: 1px solid #54595f;
+    background: #101720 !important;
+    border-right: 1px solid #54595f !important;
 }
 
 ul.treeMenu.gnb_list {
-    border-top: 1px solid #d6d6d650;
+    border-top: 1px solid #d6d6d650 !important;
 }
 
 
@@ -29,7 +28,7 @@ a.noto.btn_cloud_link {
 }
 
 .ex_icon.student p > a {
-    border-left: 1px solid #DEE2E650;
+    border-left: 1px solid #DEE2E650 !important;
 }
 
 a.noto.btn_potal_link {
@@ -51,7 +50,7 @@ a.noto.btn_potal_link {
 
 .search_zone {
     background: transparent !important;
-    border: 1px solid #54595f;
+    border: 1px solid #54595f !important;
 }
 
 .link_wrap {
@@ -77,7 +76,7 @@ ul.home-box.re_menucon_wrap {
 }
 
 .re_footer_container {
-    background: transparent;
+    background: transparent !important;
 }
 
 .btn_side_menu_control img {}
@@ -96,7 +95,7 @@ td[style] {background: #101720 !important;}
 
 a#portfolio_search_btn {
     background: transparent !important;
-    border: 1px solid #54595f;
+    border: 1px solid #54595f !important;
 }
 
 input#portfolio_task_name {
@@ -112,7 +111,7 @@ input#portfolio_task_name {
 }
 
 .gnb_list::-webkit-scrollbar-track {
-    background: none;
+    background: none !important;
 }
 
 li.li.checked.\31 551 {
@@ -126,7 +125,7 @@ li.li.checked.\31 551 {
 }
 
 ul.depth.depth2_list {
-    background: none;
+    background: none !important;
 }
 
 span {}
@@ -155,12 +154,12 @@ th {
 }
 
 .search_part.fix.clearfix {
-    background: transparent;
-    backdrop-filter: blur(5px);
+    background: transparent !important;
+    backdrop-filter: blur(5px) !important;
 }
 
 input.re_search_input {
-    background: transparent;
+    background: transparent !important;
 }
 
 tr:hover {
@@ -180,11 +179,11 @@ tr {
 }
 
 .meal_schedule_header .meal_schedule_list_btn button {
-    background: none;
+    background: none !important;
 }
 
 .meal_body_month .meal_body_tab button {
-    background: none;
+    background: none !important;
 }
 
 .day_head {
@@ -208,14 +207,14 @@ tr {
 }
 
 .meal_schedule_popup .type .popup_tab button {
-    background: none;
+    background: none !important;
 }
 
 button.meal_schedule_popup_today_on {
     background: none !important;
 }
 
-.meal_schedule_popup .title .close_popup img {background: #c8c8c850;}
+.meal_schedule_popup .title .close_popup img {background: #c8c8c850 !important;}
 
 button.btn_today_go.noprint {
     background: none !important;
@@ -230,11 +229,11 @@ button.btn_today_go.noprint {
 }
 
 tr {
-    background: none;
+    background: none !important;
 }
 
 select#t_year {
-    background: #101720;
+    background: #101720 !important;
 }
 
 select {
@@ -250,7 +249,7 @@ td {
 }
 
 .detail_sch_wrap {
-    background: none;
+    background: none !important;
 }
 
 .detail_sch_inner {
@@ -283,7 +282,7 @@ button.go_today_btn {
 
 .sel_box_inner {
     background: transparent !important;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) !important;
 }
 
 a {}
@@ -301,7 +300,7 @@ a {}
 }
 
 .view_header {
-    background: #101720;
+    background: #101720 !important;
 }
 
 input[type="text"] {
@@ -309,7 +308,7 @@ input[type="text"] {
 }
 
 .re_btn_a {
-    background: none;
+    background: none !important;
 }
 
 tr.tr_bg {
@@ -377,15 +376,15 @@ a.rd_btn.medium.lineBlue.visit_info_btn {
 }
 
 button.rd_btn.large.gray.\> {
-    background: none;
+    background: none !important;
 }
 
 button.rd_btn.large.gray {
-    background: none;
+    background: none !important;
 }
 
 textarea#reason {
-    background: none;
+    background: none !important;
 }
 
 div#ui-datepicker-div {
@@ -401,7 +400,7 @@ select.ui-datepicker-month {
 }
 
 select.ui-datepicker-month {
-    background: #101720;
+    background: #101720 !important;
 }
 
 .user_inner.clearfix {
@@ -413,7 +412,7 @@ a.btn_visit_home {
 }
 
 div#go_portal {
-    background: none;
+    background: none !important;
 }
 
 .renewal_signin_container .renewal_signin_wrap .top_section .text p {
@@ -425,7 +424,7 @@ div#go_portal {
 }
 
 .btn_fixed.on {
-    background: transparent;
+    background: transparent !important;
 }
 
 a.pagei {
@@ -450,4 +449,126 @@ a.pagei {
 
 .ck.ck-toolbar.ck-toolbar_grouping.ck-reset_all.ck-rounded-corners {
     background: none !important;
+}
+
+.portfolio_wrap .term_wrap.end, .portfolio_wrap .term_wrap.wait, .portfolio_wrap .term_wrap.vote {
+    background: none !important;
+}
+
+.rd_btn.lineBlack {
+    background: none !important;
+}
+
+.portfolio_wrap .term_wrap.submit {
+    background: none !important;
+}
+
+.portfolio_wrap .submit_view_box {
+    background: none !important;
+}
+
+.portfolio_wrap .q_box .q_tit {
+    background: none !important;
+}
+
+
+
+.rd_search_fix {
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+}
+
+.rd_search_fix .bottom_inner .rd_select {background: #101720 !important;}
+
+.rd_search_fix .rd_input.small input {
+    color: white !important;
+}
+
+.select2-container--default .select2-selection--single {
+    background: #101720 !important;
+}
+
+.select2-dropdown {
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background: #101720 !important;
+}
+
+input.select2-search__field {
+    background: none;
+}
+
+.ck.ck-balloon-panel {
+    background: transparent !important;
+}
+
+.ck.ck-button:not(.ck-disabled):hover, a.ck.ck-button:not(.ck-disabled):hover {
+    background: #0005 !important;
+}
+
+.ck.ck-button.ck-on, a.ck.ck-button.ck-on {ㅠ
+    ack: n;ㅠ
+    ack: inherit;ㅠ
+    ack: n;
+    background: black !important;
+}
+
+.ck.ck-labeled-field-view>.ck.ck-labeled-field-view__input-wrapper>.ck.ck-label {
+    background: none !important;
+}
+
+.ck-balloon-rotator__content {
+    backdrop-filter: blur(10px);
+}
+
+.ck.ck-toolbar {
+    background: transparent !important;
+}
+
+.ck.ck-dropdown__panel {
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+}
+
+textarea {
+    background: none !important;
+}
+
+input {
+    background: none !important;
+}
+
+.riro-calendar {
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+}
+
+table {
+    background: none !important;
+}
+
+.v1 .chk_password_wrap {
+    background: black;
+}
+
+.rd_btn.gray:disabled:not(:has(.rd_icon)), .rd_btn.gray.disabled:not(:has(.rd_icon)) {
+    background: none !important;
+}
+
+.new_message_wrap .msg_item {
+    background: transparent !important;
+}
+
+.new_message_wrap .sms_type {
+    background: none !important;
+}
+
+.new_message_wrap .msg_content_container_right > div {
+    background: none;
+}
+::-webkit-scrollbar-thumb {
+    border: 1.5px solid #101720 !important;
 }

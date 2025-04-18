@@ -35,3 +35,7 @@ ipcRenderer.on('idpwerr', (e) => {
     document.querySelector(".loginerror").style.display = 'block';
     pgbar.style.display = 'none';
 });
+
+ipcRenderer.on('turnoffdark', () => {
+    isdark = 0;
+})

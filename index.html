@@ -23,7 +23,8 @@
                     <div class="form"><input placeholder="학교 아이디 또는 이메일" id="idinput"></div>
                     <div class="form"><input placeholder="비밀번호" type="password" id="pwinput" ></div>
                     <div class="form2"><input type='checkbox' id="autologin"  title="아이디와 비밀번호는 기기 내에만 저장됩니다"/><label for="autologin" title="아이디와 비밀번호는 기기 내에만 저장됩니다">자동로그인</label></div>
-                    <button type="submit" value="로그인" class="loginbtn" id="loginbtn" onclick="login(idinput.value, pwinput.value);">로그인</button>
+                    <button type="submit" value="로그인" class="loginbtn" id="loginbtn" onclick="login(idinput.value, pwinput.value);">로그인</button><br><br>
+                    <!-- <input type='checkbox' id="darkmode" checked style="accent-color: black;"/><label for="darkmode">다크모드 사용</label> -->
                 </div>
         </div>
     </div>
@@ -32,301 +33,25 @@
         webview = document.querySelector('#riro');
         header = document.querySelector('#header');
         pgbar = document.querySelector('.loader');
-        css = `
-        .treeWrap {padding-top: 30px !important;box-shadow: none !important;border-right: 1px solid #d6d6d6 !important;}
-.btn_side_menu_control {margin-top: 30px !important;}
-.treeWrap .user .user_inner {border-radius: 10px !important;margin-bottom:0 !important;}
-.user_btn {margin-top: 20px !important;}
-.main-btn.txt-icon {display: none !important;}
-.gnb_list {height: calc(100% - 220px) !important;}
-
-.magnify-header {
-    margin-top: 30px !important;
-}
-
-.magnify-stage {
-    margin-top: 30px !important;
-}
-
-::-webkit-scrollbar-thumb {
-    border: 1.5px solid white !important;
-    border-radius: 100px !important;
-    background: #777777 !important;
-}
-
-.treeWrap .user .user_inner .inner_top .left .name_type_wrap .name_type .type {
-    color: #00499d !important;
-}
-
-.gnb_list > .li.checked > span {color: #00499d !important;}
-
-span.riro-label {
-    background: #00499d;
-    border: 1px solid #00499d;
-}
-
-.portfolio_wrap .btm_wrap a.btn_save {
-    background: #00499d !important;
-}
-
-.re_menucon_li_rinktitle_b {
-    color: #00499d !important;
-}
-
-.re_menucon_li_rink {
-    color: #00499d !important;
-}
-
-.wh_search_box .btn_sch_pc span {
-    color: #00499d !important;
-}
-
-.wh_search_box .link_wrap {
-    border: 1px solid #00499d !important;
-}
-
-.re_search_btn {
-    background: #00499d !important;
-}
-
-.pagei {
-    background: #00499d !important;
-}
-
-::-webkit-scrollbar {
-    width: 6px !important;
-    height: 6px !important;
-    background: none !important;
-}
-
-.gnb_list::-webkit-scrollbar-track {
-    background: none !important;
-}
-
-p.last.riro_menu {
-    border-radius: 30px !important;
-    margin-top: 10px !important;
-}
-
-.only_pc.user_inner.clearfix {
-    border-radius: 30px !important;
-}
-
-img.re_main_img {
-    border-radius: 30px !important;
-}
-
-.search_zone {
-    border-radius: 30px !important;
-}
-
-.link_wrap {
-    border-radius: 30px !important;
-}
-
-ul.home-box.home_list.re_menucon_wrap {
-    border-radius: 30px !important;
-}
-
-ul.home-box.re_menucon_wrap {
-    border-radius: 30px !important;
-}
-
-.treeWrap {
-    border-bottom-right-radius: 30px !important;
-}
-
-a#portfolio_search_btn {
-    border-radius: 16px !important;
-}
-
-.riro-label {
-    border-radius: 10px !important;
-}
-
-table {
-}
-
-img.icon_label.icon_label_students {
-    border-radius: 30px !important;
-}
-
-select {
-    border-radius: 30px !important;
-}
-
-input.re_search_input {
-}
-
-p.search_input {
-}
-
-.renewal_wrap .search_input .re_search_input {
-    border-radius: 30px !important;
-}
-
-a.re_search_btn {
-    border-radius: 30px !important;
-}
-
-.search_part,fix.clearfix {
-    border-radius: 30px !important;
-}
-
-button {
-    border-radius: 30px !important;
-}
-
-input {
-    border-radius: 30px !important;
-}
-
-.pagei {
-    border-radius: 30px !important;
-}
-
-.reserve_year_month_box {
-    border-radius: 30px !important;
-}
-
-ul.type_tab_list {
-    border-radius: 30px !important;
-}
-
-.q_box {
-    border-radius: 30px !important;
-}
-
-p.q_tit {border-top-left-radius: 30px !important;border-top-right-radius: 30px !important;}
-
-a.btn_file.btn_file_non_after {
-    border-radius: 30px !important;
-}
-
-a.rd_btn {
-    border-radius: 30px !important;
-}
-
-a.btn_portfolio_my {
-    border-radius: 30px !important;
-}
-
-a.pagei {
-    border-radius: 30px !important;
-}
-
-a.btn_file {
-    border-radius: 30px !important;
-}
-
-.btn {
-    border-radius: 30px !important;
-}
-
-.btn_save {
-    border-radius: 30px !important;
-}
-
-.btn_cancel {
-    border-radius: 30px !important;
-}
-
-.riro-calendar {
-    background: transparent !important;
-    backdrop-filter: blur(10px) !important;
-    border-radius: 30px !important;
-}
-
-table.table_trans {
-    background: none !important;
-}
-
-table[bgcolor="white"] {
-    background: none !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.meal_schedule_popup {
-    background: transparent !important;
-    backdrop-filter: blur(20px) !important;
-}
-
-.back {
-    background: none !important;
-}
-
-.title {
-    background: transparent !important;
-    backdrop-filter: blur(20px) !important;
-}
-
-.type.tab {
-    background: transparent !important;
-    backdrop-filter: blur(20px) !important;
-    z-index: 9999 !important;
-}
-
-.sel_box_inner {
-    border-radius: 30px !important;
-}
-
-.sel_box_popup {
-    border-radius: 30px !important;
-}
-
-.sel_box_inner {
-    background: transparent !important;
-    backdrop-filter: blur(20px) !important;
-}
-
-.date_title {
-}
-
-ul.msg_content_container_left {
-    border-radius: 30px !important;
-}
-
-section#msg_item_detail_tab {
-    border-radius: 30px !important;
-}
-
-button.tab_btn.notice_btn.\\30 {
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-}
-
-button.tab_btn.question_btn {
-    border-top-left-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
-}
-
-.search_key_wrap {
-    border-radius: 30px !important;
-}
-
-.btm_gray_box {
-    border-radius: 30px !important;
-    margin-bottom: 20px !important;
-}
-
-.btn_fixed {
-    border-radius: 30px !important;
-}
-
-.wh_body .page_wrap .page_list li {
-    border-radius: 30px !important;
-}
-
-.elem_fix {
-    border-radius: 30px !important;
-}
-        `
-
+        const fs = require('node:fs');
+        
+        try {
+            css = fs.readFileSync('./src/riro.css', 'utf8');
+        } catch (error) {
+            css = fs.readFileSync('./resources/app.asar.unpacked/src/riro.css', 'utf8');
+            console.error(error)
+        }
+        try {
+            darkcss = fs.readFileSync('./src/darkmode.css', 'utf8');
+        } catch (error) {
+            darkcss = fs.readFileSync('./resources/app.asar.unpacked/src/darkmode.css', 'utf8');
+            console.error(error)
+        }
+        isdark = 0;
         webview.addEventListener("load-commit", (e) => {
-            try {
-                webview.insertCSS(css);
-            } catch (error) {
-                webview.reload();
+            webview.insertCSS(css);
+            if (isdark) {
+                webview.insertCSS(darkcss);
             }
             if (e.url.startsWith('https://dankook.riroschool.kr/') == false && e.url != 'about:blank') {
                 webview.goBack()
@@ -393,12 +118,24 @@ button.tab_btn.question_btn {
             }
         })
 
+        darkmode = document.querySelector('#darkmode')
+
         function login(id, pw) {
             webview.executeJavaScript(`document.querySelector(".input_normal[type='text']").value = "${id}";
             document.querySelector(".input_normal[type='password']").value = "${pw}";
             document.querySelector(".renewal_signin_container .button_normal").click();
             `)
+            // if (darkmode.checked) {
+            //     save('darkmode', '1');
+            // }
+            // else {
+            //     save('darkmode', '0');
+            // }
         }
+
+        // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && isdark == 0) {
+        //     darkmode.checked = false;
+        // }
 </script>
 </body>
 </html>

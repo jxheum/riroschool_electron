@@ -30,6 +30,9 @@ ipc.on('loadidpw', (e, argument) => {
     try {
         if (loadencdata("id") != null && loadencdata("pw") != null) {
             e.sender.send('idpwloaded', [loadencdata("id"), loadencdata("pw")]);
+            if (store.get('darkmode') == '0') {
+                e.sender.send('turnoffdark');
+            }
         }
         else {
             e.sender.send('idpwunk');
@@ -91,7 +94,7 @@ app.whenReady().then(() => {
 
     app.on('browser-window-created', (event, window) => {
         window.webContents.addListener("dom-ready", (e) => {
-            if (window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/WebEditor/index.php?") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/policy.php")) {
+            if (window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/WebEditor/index.php?") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/policy.php") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/board.php?action=stat_all")) {
                 window.setMenuBarVisibility(false);
             }
             else if (window.webContents.getURL() == "https://dankook.riroschool.kr/home.php") {

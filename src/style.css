@@ -168,3 +168,10 @@ body, html {
         transform: rotate(360deg);
     }
 }
+
+/* @media (prefers-color-scheme: dark) {
+    .header {
+        background: rgba(16, 23, 32, 0.5) !important;
+        border-bottom: 1px solid #54595f;
+    }
+} */
