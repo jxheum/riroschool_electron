@@ -8,7 +8,10 @@
     "icon": "./src/favicon.png",
     "dependencies": {
         "crypto": "^1.0.1",
-        "electron-store": "^10.0.1"
+        "electron-context-menu": "^4.0.5",
+        "electron-store": "^10.0.1",
+        "electron-tabs": "^1.0.4",
+        "mousetrap": "^1.6.5"
     },
     "devDependencies": {
         "electron": "^35.1.3",

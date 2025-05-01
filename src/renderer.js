@@ -39,3 +39,13 @@ ipcRenderer.on('idpwerr', (e) => {
 ipcRenderer.on('turnoffdark', () => {
     isdark = 0;
 })
+
+function newwin() {
+    ipcRenderer.send('newwin');
+}
+
+ipcRenderer.on('newtab', (e) => {
+    newtab()
+})
+
+ipcRenderer.on('closetab', (e) => closetab(currenttab));

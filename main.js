@@ -2,6 +2,8 @@ import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
 import Store from "electron-store";
 import { encrypt, decrypt } from './src/crypto.js';
+import contextMenu from 'electron-context-menu';
+import { create } from "domain";
 
 const ipc = ipcMain;
 const store = new Store();
@@ -80,6 +82,25 @@ function createWindow() {
     //     console.log('asdf');
     //     return { action: 'deny' };
     // });
+    return win;
+}
+
+function createPopupWindow(url) {
+    const win = new BrowserWindow({
+        icon: "./src/favicon.png",
+        width: 1030,
+        height: 600,
+        minWidth: 600,
+        minHeight: 600
+    });
+    win.loadURL(url);
+
+    win.webContents.on('before-input-event', (event, input) => {
+        if (input.control && input.key.toLowerCase() === 'i') {
+            console.log('Pressed Control+I')
+            event.preventDefault()
+        }
+    })
 }
 
 app.whenReady().then(() => {
@@ -93,18 +114,91 @@ app.whenReady().then(() => {
     });
 
     app.on('browser-window-created', (event, window) => {
-        window.webContents.addListener("dom-ready", (e) => {
-            if (window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/WebEditor/index.php?") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/policy.php") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/board.php?action=stat_all")) {
-                window.setMenuBarVisibility(false);
-            }
-            else if (window.webContents.getURL() == "https://dankook.riroschool.kr/home.php") {
-                window.close();
-            }
-            else {
-                shell.openExternal(window.webContents.getURL());
-                console.log(window.webContents.getURL());
-                window.close();
-            }
-        });
-    })
+        if (true) {
+            window.webContents.addListener("dom-ready", (e) => {
+                if (window.webContents.getURL() == "https://dankook.riroschool.kr/lecture.php" || window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/WebEditor/index.php?") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/policy.php") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/board.php?action=stat_all") || window.webContents.getURL().includes("dict.naver.com/#/mini")) {
+                    window.setMenuBarVisibility(false);
+                }
+                else if (window.webContents.getURL() == "https://dankook.riroschool.kr/home.php") {
+                    window.close();
+                }
+                else {
+                    shell.openExternal(window.webContents.getURL());
+                    console.log(window.webContents.getURL());
+                    window.close();
+                }
+            });
+        }
+    });
+
+    app.on("web-contents-created", (e, contents) => { 
+        if (contents.getType() == "webview") { 
+            // set context menu in webview 
+            contextMenu({
+                window: contents,
+                labels: {
+                    learnSpelling: "사전에 추가",
+                    searchWithGoogle: "Google 검색",
+                    copyImage: "이미지 복사",
+                    copyLink: "링크 복사",
+                    inspect: "DevTools",
+                    spellCheck: "맞춤법 검사",
+                    cut: "잘라내기",
+                    copy: "복사",
+                    paste: "붙여넣기",
+                },
+                menu: (actions, props, browserWindow) => [
+                    actions.copy(),
+                    actions.cut(),
+                    actions.paste(),
+                    actions.separator(),
+                    actions.copyImage(),
+                    actions.copyLink(),
+                    //  actions.inspect(),
+                ],
+                append: (defaultActions, parameters, browserWindow) => [
+                    {
+                        label: 'Google에서 {selection} 검색',
+                        visible: parameters.selectionText.trim().length > 0,
+                        click: () => {
+                            shell.openExternal(`https://google.com/search?q=${encodeURIComponent(parameters.selectionText)}`);
+                        }
+                    },
+                    {
+                        label: '네이버 사전에서 {selection} 검색',
+                        visible: parameters.selectionText.trim().length > 0,
+                        click: () => {
+                            createPopupWindow('https://en.dict.naver.com/#/mini/search?query='+parameters.selectionText)
+                        }
+                    }
+                ]
+            });
+            contents.on('before-input-event', (event, input) => {
+                if (input.control && input.key.toLowerCase() === 'r') {
+                    event.preventDefault();
+                    contents.reload();
+                }
+                else if (input.control && input.key.toLowerCase() === 'n' || input.control && input.key.toLowerCase() === 't') {
+                    event.preventDefault();
+                    console.log('newtab');
+                    contents.hostWebContents.send('newtab')
+                }
+                else if (input.control && input.key.toLowerCase() === 'w') {
+                    event.preventDefault();
+                    console.log('newtab');
+                    contents.hostWebContents.send('closetab')
+                }
+                else if (input.alt && input.code === 'ArrowLeft') {
+                    event.preventDefault();
+                    contents.navigationHistory.goBack();
+                }
+                
+                else if (input.alt && input.code === 'ArrowRight') {
+                    event.preventDefault();
+                    contents.navigationHistory.goForward();
+                }
+                // console.log(input.code);
+            })
+        }
+    });
 });

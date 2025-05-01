@@ -37,12 +37,75 @@ body, html {
     border-bottom: 1px solid #d6d6d6;
 }
 
-.menubtn {
-    margin-left: 10px;
-    filter: brightness(0) saturate(100%) invert(15%) sepia(71%) saturate(4349%) hue-rotate(200deg) brightness(91%) contrast(106%);
+tab-group {
+    -webkit-app-region: none;
+}
+
+.newbtn {
     cursor:pointer;
     -webkit-app-region: no-drag;
+    background: none;
+    border: 0;
+    color: #00499d;
+    background: #0000001a;
+    padding: 5px;
+    padding-bottom: 2px;
+    border-radius: 100px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-right: 5px;
+    border: 1px solid #d6d6d6;
+    position:fixed;
+    top:0;
+    left:0;
+    backdrop-filter: blur(10px);
+    z-index: 10000;
 }
+button:hover, .newtabbtn img:hover {
+    scale: 1.05;
+}
+button:active, .newtabbtn img:active {
+    scale: 1.0;
+}
+.newtabbtn {
+    cursor:pointer;
+    -webkit-app-region: no-drag;
+    height: 30px;
+    margin: 0px;
+    vertical-align: 5px;
+    border: 1px solid #d6d6d6;
+    padding: 0px 15px;
+    border-radius: 20px;
+    margin-right: 5px;
+    background: #0000001a;
+}
+.newtabbtn.selected {
+    background: #00499d;
+    color: white;
+    border: 0;
+    padding-right: 5px;
+}
+.newtabbtn img {
+    display: none;
+    pointer-events:all;
+}
+.newtabbtn.selected img {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: -0.5px;
+}
+.tab {
+    overflow: auto;
+    white-space: nowrap;
+    padding-left: 37px;
+    padding-right: 273px;
+}
+.tab::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    background: none !important;
+}
+
 
 .loginpage {
     background: url(./dksh.webp) no-repeat;
