@@ -96,17 +96,16 @@ button:active, .newtabbtn img:active {
 }
 .tab {
     overflow: auto;
+    -webkit-app-region: no-drag;
     white-space: nowrap;
     padding-left: 37px;
-    padding-right: 273px;
+    padding-right: 200px;
 }
 .tab::-webkit-scrollbar {
     width: 6px !important;
     height: 6px !important;
     background: none !important;
 }
-
-
 .loginpage {
     background: url(./dksh.webp) no-repeat;
     height:calc(100%);

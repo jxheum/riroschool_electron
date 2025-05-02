@@ -59,7 +59,7 @@ function createWindow() {
         icon: "./src/favicon.png",
         titleBarStyle: "hidden",
         titleBarOverlay: {
-            color: '#ffffff00',
+            color: '#ffffff88',
             symbolColor: '#00499d',
             height: 30,
         },
