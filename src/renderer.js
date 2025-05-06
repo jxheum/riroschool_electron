@@ -40,12 +40,25 @@ ipcRenderer.on('turnoffdark', () => {
     isdark = 0;
 })
 
-function newwin() {
-    ipcRenderer.send('newwin');
-}
 
 ipcRenderer.on('newtab', (e) => {
     newtab()
 })
 
 ipcRenderer.on('closetab', (e) => closetab(currenttab));
+
+ipcRenderer.on('reload', (e) => {
+    document.querySelectorAll("webview")[currenttab].reload();
+})
+
+ipcRenderer.on('goback', () => {
+    document.querySelectorAll("webview")[currenttab].goBack();
+})
+
+ipcRenderer.on('goforward', () => {
+    document.querySelectorAll("webview")[currenttab].goForward();
+})
+
+ipcRenderer.on('goto', (e, argument) => {
+    document.querySelectorAll("webview")[currenttab].setAttribute('src', 'https://dankook.riroschool.kr' + argument)
+})

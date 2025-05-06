@@ -1,9 +1,12 @@
-import { app, BrowserWindow, ipcMain, shell } from "electron";
+import { app, BrowserWindow, ipcMain, shell, TouchBar } from "electron";
+const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 import path from "path";
 import Store from "electron-store";
 import { encrypt, decrypt } from './src/crypto.js';
 import contextMenu from 'electron-context-menu';
 import { create } from "domain";
+
+
 
 const ipc = ipcMain;
 const store = new Store();
@@ -63,8 +66,10 @@ function createWindow() {
             symbolColor: '#00499d',
             height: 30,
         },
+        fullscreenable: false,
         autoHideMenuBar: true,
         frame: false,
+        trafficLightPosition: { x: 10, y: 10 },
         webPreferences: {
             webviewTag: true,
             nodeIntegration: true,
@@ -82,6 +87,29 @@ function createWindow() {
     //     console.log('asdf');
     //     return { action: 'deny' };
     // });
+
+    const touchBar = new TouchBar({
+        items: [
+            new TouchBarButton({label:'←',click: () => {
+                win.webContents.send('goback');
+            }}),
+            new TouchBarButton({label:'→',click: () => {
+                win.webContents.send('goforward');
+            }}),
+            new TouchBarButton({label:'새 탭',click: () => {
+                win.webContents.send('newtab');
+            }}),
+            new TouchBarButton({label:'새로고침',click: () => {
+                win.webContents.send('reload');
+            }}),
+            new TouchBarSpacer({size: "flexible"}),
+            new TouchBarButton({label: '교과활동', click: () => {
+                win.webContents.send('goto', '/portfolio.php?db=1551')
+            }})
+        ]
+    });
+    win.setTouchBar(touchBar);
+    win.setWindowButtonVisibility(true);
     return win;
 }
 
@@ -95,13 +123,17 @@ function createPopupWindow(url) {
     });
     win.loadURL(url);
 
-    win.webContents.on('before-input-event', (event, input) => {
-        if (input.control && input.key.toLowerCase() === 'i') {
-            console.log('Pressed Control+I')
-            event.preventDefault()
-        }
-    })
+    const touchBar2 = new TouchBar({
+        items: [
+            new TouchBarButton({label:'닫기', backgroundColor:'#FF0000',click: () => {
+                win.close()
+            }})
+        ]
+    });
+    win.setTouchBar(touchBar2);
 }
+
+
 
 app.whenReady().then(() => {
     createWindow();
@@ -114,6 +146,14 @@ app.whenReady().then(() => {
     });
 
     app.on('browser-window-created', (event, window) => {
+        const touchBar3 = new TouchBar({
+            items: [
+                new TouchBarButton({label:'닫기', backgroundColor:'#FF0000',click: () => {
+                    window.close()
+                }})
+            ]
+        });
+        window.setTouchBar(touchBar3);
         if (true) {
             window.webContents.addListener("dom-ready", (e) => {
                 if (window.webContents.getURL() == "https://dankook.riroschool.kr/lecture.php" || window.webContents.getURL().includes("pdfjs/web/viewer.html") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/itempool_test.php") || window.webContents.getURL().includes("my_page") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/WebEditor/index.php?") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/policy.php") || window.webContents.getURL().startsWith("https://dankook.riroschool.kr/board.php?action=stat_all") || window.webContents.getURL().includes("dict.naver.com/#/mini")) {

@@ -1,19 +1,23 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import Store from 'electron-store';
+
+const store = new Store();
 
 const algorithm = 'aes-256-cbc';
 const keyFilePath = path.join(process.cwd(), 'encryption_key'); // 키를 저장할 파일 경로
 
 // 암호화 키를 로드하거나 생성
 function getKey() {
-    if (fs.existsSync(keyFilePath)) {
+    const data = store.get("encryption_key");
+    if (data) {
         // 키 파일이 존재하면 키를 읽어옴
-        return fs.readFileSync(keyFilePath);
+        return new Buffer(data.data);
     } else {
         // 키 파일이 없으면 새 키를 생성하고 저장
         const newKey = crypto.randomBytes(32); // 32바이트 키 생성
-        fs.writeFileSync(keyFilePath, newKey);
+        store.set("encryption_key", newKey)
         return newKey;
     }
 }

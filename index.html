@@ -10,7 +10,7 @@
     <div class="header" id="header">
         <div class="tab" id="tab" style="display:none;">
             <button class="newbtn" onclick="newtab();">
-                <img src="./src/newtabbtn.svg" height="20px">
+                <img src="./src/newtabbtn.svg" height="15px">
             </button><button class="newtabbtn selected" onclick="changetabto(0)">DKSH<img src="./src/closetab.svg" height="10px" onclick="closetab(currenttab)"></button></div>
     </div>
     <!-- <a href="about:blank" target="_blank"><button style="height: 100px;">asdf</button></a> -->
@@ -239,7 +239,10 @@
             webview[currenttab].goForward();
         })
 
-        
+        // if (navigator.platform.includes("Mac")) {
+        //     document.querySelector(".newbtn").style.paddingLeft = '65px';
+        //     document.querySelector(".tab").style.paddingLeft = '97px';
+        // }
 
 </script>
 </body>
