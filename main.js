@@ -46,6 +46,7 @@ ipc.on('loadidpw', (e, argument) => {
     catch {
         store.delete('id');
         store.delete('pw');
+        store.delete('encryption_key');
         console.log("Reset Complete")
         e.sender.send('idpwerr');
     }

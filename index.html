@@ -36,20 +36,18 @@
         header = document.querySelector('#header');
         pgbar = document.querySelector('.loader');
         const fs = require('node:fs');
+        const path = require('path');
         var Mousetrap = require('mousetrap');
         
-        try {
-            css = fs.readFileSync('./src/riro.css', 'utf8');
-        } catch (error) {
-            css = fs.readFileSync('./resources/app.asar.unpacked/src/riro.css', 'utf8');
-            console.error(error)
-        }
-        try {
-            darkcss = fs.readFileSync('./src/darkmode.css', 'utf8');
-        } catch (error) {
-            darkcss = fs.readFileSync('./resources/app.asar.unpacked/src/darkmode.css', 'utf8');
-            console.error(error)
-        }
+        
+            css = fs.readFileSync(path.join(__dirname, 'src/riro.css').replace('app.asar', 'app.asar.unpacked'), 'utf8');
+        
+        // try {
+        //     darkcss = fs.readFileSync('./src/darkmode.css', 'utf8');
+        // } catch (error) {
+        //     darkcss = fs.readFileSync('./resources/app.asar.unpacked/src/darkmode.css', 'utf8');
+        //     console.error(error)
+        // }
         isdark = 0;
         
         function loadwebview() {
