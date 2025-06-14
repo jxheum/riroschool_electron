@@ -4,9 +4,7 @@
 
 node.js 기반으로 electron 써서 만듬
 
-~~유감이지만 맥이 없어서 macOS는 직접 빌드하시길~~
-
-Github Actions 쓸 줄 아는 분 구함 
+최신 버전은 직접 빌드 해 사용하세요
 
 # 기능
 
