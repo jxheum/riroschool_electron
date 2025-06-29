@@ -60,7 +60,7 @@ ipc.on('resetidpw', (e, argument) => {
 
 function createWindow() {
     const win = new BrowserWindow({
-        icon: "./src/favicon.png",
+        icon: "./src/icon.png",
         titleBarStyle: "hidden",
         titleBarOverlay: {
             color: '#ffffff88',
@@ -116,7 +116,7 @@ function createWindow() {
 
 function createPopupWindow(url) {
     const win = new BrowserWindow({
-        icon: "./src/favicon.png",
+        icon: "./src/icon.png",
         width: 1030,
         height: 600,
         minWidth: 600,

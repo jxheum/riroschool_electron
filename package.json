@@ -2,10 +2,10 @@
     "name": "dksh_riroschool",
     "productName": "DKSH RIROSCHOOL",
     "description": "단대소고짱",
-    "version": "1.4.4",
+    "version": "1.5.0",
     "main": "main.js",
     "license": "Apache-2.0",
-    "icon": "./src/favicon.png",
+    "icon": "./build/icon.png",
     "dependencies": {
         "crypto": "^1.0.1",
         "dmg-license": "^1.0.11",
@@ -32,10 +32,11 @@
     },
     "build": {
         "win": {
-            "icon": "./src/favicon.png"
+            "icon": "./build/icon.png"
         },
         "mac": {
-            "icon": "./src/favicon.png"
+            "icon": "./build/icon_mac.png"
+
         },
         "asarUnpack": [
             "./src/riro.css",
