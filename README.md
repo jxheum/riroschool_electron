@@ -10,9 +10,8 @@ electron, node.js
 
 
 # 스크린샷
-<img width="1142" alt="로그인 화면" src="https://github.com/user-attachments/assets/df1d6a65-aa5c-43a8-925d-a910b890fbf6" />
-<img width="1142" alt="메인 화면" src="https://github.com/user-attachments/assets/0865177b-0ef6-4c62-b107-8ee704b8e382" />
-<img width="712" alt="에디터 화면" src="https://github.com/user-attachments/assets/29cdd854-7dab-4ec6-ac6a-036ff9c3e53f" />
-
+<img width="1522" alt="image" src="https://github.com/user-attachments/assets/aaba106a-e34d-46e5-b8fd-cca41ef3479b" />
+<img width="1522" alt="image" src="https://github.com/user-attachments/assets/686de63e-1aba-4ba0-b253-d86efae309c1" />
+<img width="1522" alt="image" src="https://github.com/user-attachments/assets/d8592ea3-0a53-426c-b00f-598736757664" />
 
 > __"세계 최고 언어는 자바스크립트다"__
