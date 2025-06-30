@@ -1,8 +1,9 @@
-
 # 대 단 소 리로스쿨 자동로그인&뷰어 프로그램
 심심해서 만들어봤다!
 
 electron, node.js
+
+윈도우는 지원은 하나 테스트는 안해봄
 
 # 다운로드
 [최신 버전 다운로드](https://github.com/jxheum/riroschool_electron/releases/latest)
