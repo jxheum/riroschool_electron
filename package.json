@@ -2,8 +2,9 @@
     "name": "dksh_riroschool",
     "productName": "DKSH RIROSCHOOL",
     "description": "단대소고짱",
-    "version": "1.5.0",
+    "version": "2.0.0",
     "main": "main.js",
+    "type": "module",
     "license": "Apache-2.0",
     "icon": "./build/icon.png",
     "dependencies": {
@@ -28,7 +29,8 @@
         "build:win": "npm run build:win32 && npm run build:win64",
         "build:win32": "electron-builder --win --ia32",
         "build:win64": "electron-builder --win --x64",
-        "build": "electron-builder"
+        "build": "electron-builder",
+        "build:mw": "electron-builder --mac && electron-builder --win"
     },
     "build": {
         "win": {

@@ -2,9 +2,7 @@
 # 대 단 소 리로스쿨 자동로그인&뷰어 프로그램
 심심해서 만들어봤다!
 
-시험 끝나고 탭 기능 없애고 화면분할 만들게요
-
-electron.js
+electron, node.js
 
 # 다운로드
 [최신 버전 다운로드](https://github.com/jxheum/riroschool_electron/releases/latest)

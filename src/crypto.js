@@ -13,7 +13,7 @@ function getKey() {
     const data = store.get("encryption_key");
     if (data) {
         // 키 파일이 존재하면 키를 읽어옴
-        return new Buffer(data.data);
+        return Buffer.from(data.data);
     } else {
         // 키 파일이 없으면 새 키를 생성하고 저장
         const newKey = crypto.randomBytes(32); // 32바이트 키 생성

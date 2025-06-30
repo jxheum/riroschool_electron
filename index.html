@@ -7,19 +7,29 @@
     <link href="./src/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="header" id="header">
-        <div class="tab" id="tab" style="display:none;">
-            <button class="newbtn" onclick="newtab();">
-                <img src="./src/newtabbtn.svg" height="15px">
-            </button><button class="newtabbtn selected" onclick="changetabto(0)">DKSH<img src="./src/closetab.svg" height="10px" onclick="closetab(currenttab)"></button></div>
+    <div class="shadow header" id="header">
+    </div>
+    <div class="dragarea">
+    </div>
+
+    <div class="newwindow-btn shadow" id="newwindow-btn" onclick="newWindow()" title="새 창">
+        <img src="./src/newtabbtn.svg" width="16px" height="16px" alt="새 창">
+    </div>
+    <div class="split-btn shadow" id="split-btn" onclick="toggleSplit()" title="화면 분할">
+        <img src="./src/splitbtn.svg" width="16px" height="16px" alt="화면 분할">
     </div>
     <!-- <a href="about:blank" target="_blank"><button style="height: 100px;">asdf</button></a> -->
-    <webview src="https://dankook.riroschool.kr/user.php?action=signin" id="riro" style="display:none !important;" webpreferences="nativeWindowOpen=true" allowpopups nodeintegration>
-    </webview>
+    <div class="webview-container" id="webview-container">
+        <webview src="https://dankook.riroschool.kr/user.php?action=signin" id="riro" class="webview-left" webpreferences="nativeWindowOpen=true" allowpopups nodeintegration>
+        </webview>
+        <div class="resizer" id="resizer"></div>
+        <webview src="https://dankook.riroschool.kr/user.php?action=signin" id="riro2" class="webview-right" webpreferences="nativeWindowOpen=true" allowpopups nodeintegration style="display:none;">
+        </webview>
+    </div>
 
     <div class="loginpage">
-        <div class="loginform">
-                <img src="./src/logo.png" height="60px">
+        <div class="loginform shadow">
+                <img src="./src/logo.png" height="60px" alt="단대소고 로고">
                 <div class="loginerror" style="display:none;">다시 로그인해주세요</div>
                 <div class="loader"></div>
                 <div id="logininputs" style="display:none;">
@@ -31,217 +41,8 @@
                 </div>
         </div>
     </div>
+    
     <script src="./src/renderer.js"></script>
-    <script>
-        header = document.querySelector('#header');
-        pgbar = document.querySelector('.loader');
-        const fs = require('node:fs');
-        const path = require('path');
-        var Mousetrap = require('mousetrap');
-        
-        
-            css = fs.readFileSync(path.join(__dirname, 'src/riro.css').replace('app.asar', 'app.asar.unpacked'), 'utf8');
-        
-        // try {
-        //     darkcss = fs.readFileSync('./src/darkmode.css', 'utf8');
-        // } catch (error) {
-        //     darkcss = fs.readFileSync('./resources/app.asar.unpacked/src/darkmode.css', 'utf8');
-        //     console.error(error)
-        // }
-        isdark = 0;
-        
-        function loadwebview() {
-            webview = document.querySelectorAll('#riro');
-            webview.forEach((element, i) => {
-                element.addEventListener("load-commit", (e) => {
-                    element.insertCSS(css);
-                    if (isdark) {
-                        element.insertCSS(darkcss);
-                    }
-                    if (e.url.startsWith('https://dankook.riroschool.kr/') == false && e.url != 'about:blank') {
-                        element.goBack()
-                        openExternal(e.url);
-                        console.log(e.url);
-                    }
-                    if (element.isDevToolsOpened() == false) {
-                        // webview.openDevTools();
-                    }
-                    if (e.url == "https://dankook.riroschool.kr/") {       
-                        loginpage.style.display = 'none';
-                        element.style.display = '';
-                        if (autologin.checked) {
-                            save('id', idinput.value);
-                            save('pw', pwinput.value);
-                        }
-                        element.setAttribute('src', 'https://dankook.riroschool.kr/home.php')
-                        document.querySelector('.tab').style.display=''
-                    }
-                    else if (e.url == "https://dankook.riroschool.kr/user.php?action=signin") {
-                        loginpage.style.display = 'block';
-                        element.style.display = 'none';
-                        loadidpw();
-                    }
-                    try {
-                        element.executeJavaScript(`parent.console.log(document.querySelectorAll('h2')[1].innerText)`);
-                    } catch {
-                        
-                    }
-                })
-
-                element.addEventListener("dom-ready", (e) => {
-                    header.style.display = 'block';
-        //             element.executeJavaScript(`document.querySelectorAll("a[target='_blank']").forEach((e) => {
-        //                 e.setAttribute("target", "")
-        //             })
-        //             document.onkeydown = (e) => {
-        //     if (e.key == "r" && e.ctrlKey) {
-        //         e.preventDefault();
-        //         location.reload();
-        //     }
-        // }    
-        //             `)
-                });
-
-                // element.addEventListener('page-title-updated', (e) => {
-                //     document.querySelectorAll(".newtabbtn")[i].innerText = 'DKSH';
-                // })
-
-                element.addEventListener("will-navigate", (e) => {
-                    if (e.url == "https://dankook.riroschool.kr/user.php?action=user_logout") {
-                        idinput.value = '';
-                        pwinput.value = '';
-                        autologin.checked = false;
-                        document.querySelector('.tab').style.display='none'
-                        resetidpw();
-                    }
-                });
-            });
-        }
-
-        idinput = document.querySelector('#idinput');
-        pwinput = document.querySelector('#pwinput');
-        loginbtn = document.querySelector('#loginbtn');
-        autologin = document.querySelector('#autologin');
-        loginpage = document.querySelector('.loginpage');
-
-        idinput.addEventListener("keydown", (e) => {
-            if (e.keyCode == 13) {
-                pwinput.focus();
-            }
-        })
-        
-        pwinput.addEventListener("keydown", (e) => {
-            if (e.keyCode == 13) {
-                login(idinput.value, pwinput.value);
-            }
-        })
-
-        darkmode = document.querySelector('#darkmode')
-
-        function login(id, pw) {
-            webview.forEach(element => {
-                element.executeJavaScript(`document.querySelector(".input_normal[type='text']").value = "${id}";
-            document.querySelector(".input_normal[type='password']").value = "${pw}";
-            document.querySelector(".renewal_signin_container .button_normal").click();
-            `)
-            // if (darkmode.checked) {
-            //     save('darkmode', '1');
-            // }
-            // else {
-            //     save('darkmode', '0');
-            // }
-            });
-        }
-
-        // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && isdark == 0) {
-        //     darkmode.checked = false;
-        // }
-
-        webviewnum=1;
-        currenttab = 0;
-
-
-        function newtab() {
-            const newwebview = document.createElement("webview")
-            newwebview.setAttribute("src", "https://dankook.riroschool.kr/user.php?action=signin");
-            newwebview.setAttribute("id", "riro");
-            newwebview.setAttribute("webpreferences", "nativeWindowOpen=true")
-            newwebview.setAttribute("nodeintegration", "true")
-            newwebview.setAttribute("allowpopups", "true")
-            document.querySelector('body').append(newwebview)
-            loadwebview();
-            webviewnum++;
-            const newtabbtn = document.createElement("button");
-            newtabbtn.setAttribute("class", 'newtabbtn');
-            newtabbtn.setAttribute("onclick", `changetabto(${webviewnum-1})`)
-            newtabbtn.innerHTML = `DKSH<img src="./src/closetab.svg" height="10px" onclick="closetab(currenttab)">`
-            document.querySelector('.tab').append(newtabbtn);
-            changetabto(webviewnum-1);
-        }
-
-        function changetabto(n) {
-            webview = document.querySelectorAll('webview');
-            webview.forEach((e, i) => {
-                e.style.display = 'none';
-                document.querySelectorAll(".newtabbtn")[i].classList.remove("selected");
-            })
-            try {webview[n].style.display = ''}
-            catch {webview[n-1].style.display = '', n--}
-            currenttab = n;
-            document.querySelectorAll(".newtabbtn")[currenttab].classList.add("selected");
-        }
-
-        function closetab(n) {
-            webviewnum--;
-            if (webviewnum == 0) window.close();                
-            if (n==0) {
-                changetabto(n+1);
-            }
-            else {
-                changetabto(n-1);
-            }
-            n == 1 ? null : currenttab = 0;
-            webview[n].remove();
-            document.querySelectorAll(".newtabbtn")[n].remove();
-            webview.forEach((element, i) => {
-                if (i-1 >= n) {
-                    document.querySelectorAll(".newtabbtn")[i-1].setAttribute("onclick", `changetabto(${i-1})`)
-                }
-            });
-        }
-
-        loadwebview()
-
-        Mousetrap.bind(['ctrl+r', 'cmd+r'], (e) => {
-            e.preventDefault();
-            webview[currenttab].reload();
-        });
-
-        Mousetrap.bind(['ctrl+n', 'cmd+n', 'ctrl+t', 'cmd+t'], (e) => {
-            e.preventDefault();
-            newtab();
-        });
-
-        Mousetrap.bind(["ctrl+w", "cmd+w"], (e) => {
-            e.preventDefault();
-            closetab(currenttab);
-        })
-
-        Mousetrap.bind(["alt+left"], (e) => {
-            e.preventDefault();
-            webview[currenttab].goBack();
-        })
-
-        Mousetrap.bind(["alt+right"], (e) => {
-            e.preventDefault();
-            webview[currenttab].goForward();
-        })
-
-        // if (navigator.platform.includes("Mac")) {
-        //     document.querySelector(".newbtn").style.paddingLeft = '65px';
-        //     document.querySelector(".tab").style.paddingLeft = '97px';
-        // }
-
-</script>
+    <script src="./src/script.js"></script>
 </body>
 </html>

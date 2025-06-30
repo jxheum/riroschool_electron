@@ -11,11 +11,6 @@
     transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1)
 }
 
-webview {
-    width: calc(100vw - 0px);
-    height: 100vh;
-    display: inline-flex;
-}
 
 body, html {
     width: 100vw;
@@ -24,17 +19,181 @@ body, html {
     overflow:hidden;
 }
 
-.header {
+.dragarea {
     -webkit-app-region: drag;
     width: calc(100vw);
+    height: 35px;
     position: fixed;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.5);
     top: 0;
-    right: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.header {
+    -webkit-app-region: drag;
+    position: fixed;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 5px;
+    left: 5px;
+    width: 74px;
+    border-radius: 100px;
     /* box-shadow: 8px 4px 10px 0px rgba(0, 0, 0, 0.10); */
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid #d6d6d6;
+    backdrop-filter: blur(3px);
+    z-index: 10001;
+}
+
+.shadow {
+    box-shadow: inset 0px -4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(255,255,255,0.25), 0px 4px 10px rgba(0,0,0,0.25);
+}
+
+.newwindow-btn {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    height: 35px;
+    width: 35px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 5px;
+    right: 5px;
+    border-radius: 100px;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00499d;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 10001;
+    font-size: 20px;
+}
+
+.newwindow-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.newwindow-btn:active {
+    transform: scale(0.95);
+}
+
+.split-btn {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    height: 35px;
+    width: 35px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 5px;
+    right: 45px;
+    border-radius: 100px;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00499d;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 10001;
+}
+
+.split-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.split-btn:active {
+    transform: scale(0.95);
+}
+
+.split-btn.active {
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25), inset 0px 0px 4px rgba(0, 0, 0, 0.25) !important;
+}
+
+.webview-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.webview-left, .webview-right {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.webview-left {
+    display: inline-flex;
+}
+
+.webview-left.active {
+    display: inline-flex;
+}
+
+.webview-right.active {
+    display: inline-flex;
+}
+
+/* 분할 모드 */
+.split-mode .webview-left.active {
+    border-right: none;
+    margin-top: -20px;
+}
+
+.split-mode .webview-right.active {
+    margin-top: -20px;
+}
+
+.resizer {
+    display: none;
+    width: 4px;
+    background: #d6d6d6;
+    cursor: col-resize;
+    position: relative;
+    transition: background-color 0.2s ease;
+    -webkit-app-region: no-drag;
+    z-index: 10002;
+}
+
+.resizer:hover {
+    background: #00499d;
+    width: 6px;
+    transition: all 0.2s ease;
+}
+
+.resizer:active {
+    background: #003580;
+    width: 8px;
+}
+
+.split-mode .resizer {
+    display: block;
+}
+
+.resizer::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    top: 0;
+    bottom: 0;
+    cursor: col-resize;
+}
+
+/* 리사이징 중 상태 */
+body.resizing {
+    cursor: col-resize !important;
+    user-select: none !important;
+}
+
+body.resizing * {
+    cursor: col-resize !important;
+}
+
+body.resizing .resizer {
+    background: #003580;
+    width: 8px;
+    box-shadow: 0 0 10px rgba(0, 73, 157, 0.5);
 }
 
 tab-group {
@@ -96,13 +255,6 @@ button:active, .newtabbtn img:active {
     margin-left: 5px;
     vertical-align: -0.5px;
 }
-.tab {
-    overflow: auto;
-    -webkit-app-region: no-drag;
-    white-space: nowrap;
-    padding-left: 32px;
-    margin-top: 30px;
-}
 .tab::-webkit-scrollbar {
     width: 6px !important;
     height: 6px !important;
@@ -110,21 +262,25 @@ button:active, .newtabbtn img:active {
 }
 .loginpage {
     background: url(./dksh.webp) no-repeat;
-    height:calc(100%);
+    height: calc(100%);
     background-size: cover;
     background-position: center;
+    width: 100vw;
+    top: 0;
+    position: absolute;
 }
 
 .loginform {
     width: 50%;
     background: #fffa;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(3px);
     text-align: center;
     padding: 20px;
     position:absolute;
     top: calc((100vh - 50%) / 2);
     left: calc((100vw - 50%) / 2);
     border-radius: 20px;
+    z-index: 99999;
 }
 
 .loginform img {
