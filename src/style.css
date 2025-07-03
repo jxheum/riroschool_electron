@@ -137,11 +137,9 @@ body, html {
 /* 분할 모드 */
 .split-mode .webview-left.active {
     border-right: none;
-    margin-top: -20px;
 }
 
 .split-mode .webview-right.active {
-    margin-top: -20px;
 }
 
 .resizer {
@@ -295,18 +293,19 @@ button:active, .newtabbtn img:active {
     height: 25px;
     border:0;
     background:0;
-    border-bottom: 2.5px solid #414041;
     font-size: 15px;
-    border-radius: 2px;
+    border-radius: 100px;
+    padding: 10px;
     color: #414041;
 }
 .form input:focus {
     outline:0;
-    border-bottom: 2.5px solid #02499b;
+    border: 2.5px solid #02499b;
 }
-.form input:hover {
+.form input:hover, .form2 input:hover {
     scale: 1.1;
 }
+
 
 .form2 {
     font-size: 15px;
@@ -319,7 +318,6 @@ button:active, .newtabbtn img:active {
     accent-color: #02499b;
     cursor:help;
     background:0;
-    
 }
 .form2 label {
     cursor:help;
@@ -348,9 +346,6 @@ button:active, .newtabbtn img:active {
     background: #02499b;
     scale: 1.1;
     color:#fff;
-}
-.loginbtn:focus {
-    outline:2px solid #02499b;
 }
 
 .loginbtn:active {

@@ -1,9 +1,48 @@
-.treeWrap {padding-top: 20px !important;box-shadow: none !important;border-right: 1px solid #d6d6d6 !important;}
+.treeWrap {padding-top: 20px !important;box-shadow: none !important;border-right: 1px solid #d6d6d6 !important;border-radius: 30px !important;margin-left: 5px;height: calc(100vh - 10px) !important;margin-top: 5px;transition: 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6) !important;}
 .btn_side_menu_control {margin-top: 60px !important;}
-.treeWrap .user .user_inner {border-radius: 10px !important;margin-bottom:0 !important;}
+.treeWrap .user .user_inner {border-radius: 10px !important;margin-bottom:0 !important;padding-bottom: 10px !important;padding-bottom: 10px !important;}
 .user_btn {margin-top: 10px !important;}
 .main-btn.txt-icon {display: none !important;}
-.gnb_list {height: calc(100% - 220px) !important;}
+.gnb_list {height: calc(100% - 280px) !important;}
+
+.treeWrap {
+    background: #ffffff88 !important;
+    backdrop-filter: blur(10px);
+}
+
+img.logo {
+    border-radius: 30px;
+}
+
+.treeWrap .user .user_inner {
+    background: transparent !important;
+}
+
+.children_change {
+    background: transparent !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .treeWrap {
+        top: -15px !important;
+        margin-top: 0;
+    }
+}
+
+.treeWrap, .treeWrap .btn_side_menu_control {
+    box-shadow: inset 0px -4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(255,255,255,0.25), 0px 4px 10px rgba(0,0,0,0.25) !important;
+    /* padding-bottom: 10px; */
+}
+
+table {
+    padding-bottom: 10px !important;
+}
+
+
+
+.only_pc.icon_box.ex_icon.student {
+    border-radius: 300px !important;
+}
 
 .magnify-header {
     margin-top: 40px !important;
@@ -96,10 +135,6 @@ ul.home-box.home_list.re_menucon_wrap {
 
 ul.home-box.re_menucon_wrap {
     border-radius: 30px !important;
-}
-
-.treeWrap {
-    border-bottom-right-radius: 30px !important;
 }
 
 a#portfolio_search_btn {
@@ -205,10 +240,13 @@ table[bgcolor="white"] {
     background: none !important;
     backdrop-filter: blur(10px) !important;
 }
+form#popwritefrm {
+    border-radius: 30px !important;
+}
 
 .meal_schedule_popup {
     background: transparent !important;
-    backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(3px) !important;
 }
 
 .back {
@@ -216,13 +254,12 @@ table[bgcolor="white"] {
 }
 
 .title {
-    background: transparent !important;
-    backdrop-filter: blur(20px) !important;
+    background: transparent;
 }
 
 .type.tab {
     background: transparent !important;
-    backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(3px) !important;
     z-index: 9999 !important;
 }
 
@@ -236,7 +273,7 @@ table[bgcolor="white"] {
 
 .sel_box_inner {
     background: transparent !important;
-    backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(3px) !important;
 }
 
 

@@ -102,24 +102,13 @@ function createApplicationMenu() {
         ...(isMac ? [{
             label: app.getName(),
             submenu: [
-                { role: 'about' },
+                { role: 'about', label: app.getName() + ' 정보' },
                 { type: 'separator' },
-                { 
-                    label: '전체화면',
-                    accelerator: 'Cmd+Ctrl+F',
-                    click: () => {
-                        const focusedWindow = BrowserWindow.getFocusedWindow();
-                        if (focusedWindow) {
-                            focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
-                        }
-                    }
-                },
+                { role: 'hide', label: app.getName() + ' 숨기기' },
+                { role: 'hideothers', label: '기타 숨기기'},
+                { role: 'unhide', label: '모두 표시'},
                 { type: 'separator' },
-                { role: 'hide' },
-                { role: 'hideothers' },
-                { role: 'unhide' },
-                { type: 'separator' },
-                { role: 'quit' }
+                { role: 'quit', label: app.getName() + ' 종료' }
             ]
         }] : []),
         
@@ -143,9 +132,7 @@ function createApplicationMenu() {
                             focusedWindow.close();
                         }
                     }
-                },
-                { type: 'separator' },
-                isMac ? { role: 'close' } : { role: 'quit' }
+                }
             ]
         },
         
@@ -153,20 +140,20 @@ function createApplicationMenu() {
         {
             label: '편집',
             submenu: [
-                { role: 'undo' },
-                { role: 'redo' },
+                { role: 'undo', label: '실행 취소' },
+                { role: 'redo', label: '다시 실행' },
                 { type: 'separator' },
-                { role: 'cut' },
-                { role: 'copy' },
-                { role: 'paste' },
+                { role: 'cut', label: '잘라내기' },
+                { role: 'copy', label: '복사' },
+                { role: 'paste', label: '붙여넣기' },
                 ...(isMac ? [
-                    { role: 'pasteAndMatchStyle' },
-                    { role: 'delete' },
-                    { role: 'selectAll' }
+                    { role: 'pasteAndMatchStyle', label: '붙여넣고 스타일 일치시킴' },
+                    { role: 'delete', label: '삭제' },
+                    { role: 'selectAll', label: '전체 선택' }
                 ] : [
-                    { role: 'delete' },
+                    { role: 'delete', label: '삭제' },
                     { type: 'separator' },
-                    { role: 'selectAll' }
+                    { role: 'selectAll', label: '전체 선택' }
                 ])
             ]
         },
@@ -185,12 +172,12 @@ function createApplicationMenu() {
                         }
                     }
                 },
-                { role: 'forceReload' },
-                { role: 'toggleDevTools' },
+                { role: 'forceReload', label: '강제 새로고침', accelerator: 0 },
+                { role: 'toggleDevTools', label: '개발자 도구 전환', accelerator: isMac ? 'Cmd+Alt+I' : 'Ctrl+Shift+I'},
                 { type: 'separator' },
-                { role: 'resetZoom' },
-                { role: 'zoomIn' },
-                { role: 'zoomOut' },
+                { role: 'resetZoom', label: '기본 배율로 되돌리기', accelerator: isMac ? 'Cmd+0' : 'Ctrl+0' },
+                { role: 'zoomIn', label: '배율 확대', accelerator: isMac ? 'Cmd+=' : 'Ctrl+=' },
+                { role: 'zoomOut', label: '배율 축소', accelerator: isMac ? 'Cmd+-' : 'Ctrl+-' },
                 { type: 'separator' },
                 { 
                     label: '전체화면',
@@ -237,14 +224,24 @@ function createApplicationMenu() {
             label: '창',
             submenu: [
                 { role: 'minimize' },
-                { role: 'close' },
+                { role: 'close', label: '창 닫기' },
                 ...(isMac ? [
+                    { 
+                    label: '전체화면',
+                    accelerator: 'Cmd+Ctrl+F',
+                    click: () => {
+                        const focusedWindow = BrowserWindow.getFocusedWindow();
+                        if (focusedWindow) {
+                            focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+                        }
+                    }
+                },
                     { type: 'separator' },
-                    { role: 'front' },
+                    { role: 'front', label: '앞으로 가져오기' },
                     { type: 'separator' },
                     { role: 'window' }
                 ] : [
-                    { role: 'close' }
+                    { role: 'close', label: '창 닫기' }
                 ])
             ]
         },
@@ -252,13 +249,9 @@ function createApplicationMenu() {
         // 도움말 메뉴
         {
             role: 'help',
+            label: '도움말',
             submenu: [
-                {
-                    label: '리로스쿨에 대해',
-                    click: async () => {
-                        await shell.openExternal('https://dankook.riroschool.kr');
-                    }
-                }
+                
             ]
         }
     ];
@@ -417,7 +410,8 @@ app.whenReady().then(() => {
                     currentURL.startsWith("https://dankook.riroschool.kr/policy.php") || 
                     currentURL.startsWith("https://dankook.riroschool.kr/board.php?action=stat_all") || 
                     currentURL.includes("dict.naver.com/#/mini") ||
-                    currentURL.includes("index.html")) {
+                    currentURL.includes("index.html") ||
+                    currentURL.startsWith("https://dankook.riroschool.kr/")) {
                     window.setMenuBarVisibility(true);
                 }
                 else if (currentURL == "https://dankook.riroschool.kr/home.php") {
@@ -456,7 +450,7 @@ app.whenReady().then(() => {
                     actions.separator(),
                     actions.copyImage(),
                     actions.copyLink(),
-                    //  actions.inspect(),
+                    actions.inspect(),
                 ],
                 append: (defaultActions, parameters, browserWindow) => [
                     {

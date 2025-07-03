@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리로스쿨</title>
+    <title>DKSH RIRO</title>
     <link href="./src/style.css" rel="stylesheet">
 </head>
 <body>
@@ -31,12 +31,12 @@
         <div class="loginform shadow">
                 <img src="./src/logo.png" height="60px" alt="단대소고 로고">
                 <div class="loginerror" style="display:none;">다시 로그인해주세요</div>
-                <div class="loader"></div>
+                <div class="loader shadow"></div>
                 <div id="logininputs" style="display:none;">
-                    <div class="form"><input placeholder="학교 아이디 또는 이메일" id="idinput"></div>
-                    <div class="form"><input placeholder="비밀번호" type="password" id="pwinput" ></div>
-                    <div class="form2"><input type='checkbox' id="autologin"  title="아이디와 비밀번호는 기기 내에만 저장됩니다"/><label for="autologin" title="아이디와 비밀번호는 기기 내에만 저장됩니다">자동로그인</label></div>
-                    <button type="submit" value="로그인" class="loginbtn" id="loginbtn" onclick="login(idinput.value, pwinput.value);">로그인</button><br><br>
+                    <div class="form"><input placeholder="학교 아이디 또는 이메일" id="idinput" class="shadow"></div>
+                    <div class="form"><input placeholder="비밀번호" type="password" id="pwinput" class="shadow"></div>
+                    <div class="form2"><input type='checkbox' id="autologin"  title="아이디와 비밀번호는 기기 내에만 저장됩니다" class="shadow" /><label for="autologin" title="아이디와 비밀번호는 기기 내에만 저장됩니다">자동로그인</label></div>
+                    <button type="submit" value="로그인" class="loginbtn shadow" id="loginbtn" onclick="login(idinput.value, pwinput.value);">로그인</button><br><br>
                     <!-- <input type='checkbox' id="darkmode" checked style="accent-color: black;"/><label for="darkmode">다크모드 사용</label> -->
                 </div>
         </div>
